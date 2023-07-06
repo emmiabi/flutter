@@ -4,7 +4,10 @@ void main() {
     debugShowCheckedModeBanner: false,
     title:"awesome app",
     home:HomePage(),
-  ));
+    theme:ThemeData(
+        primarySwatch:Colors.purple),
+  ),
+  );
 }
 class HomePage extends StatelessWidget {
   @override
@@ -13,78 +16,44 @@ class HomePage extends StatelessWidget {
       appBar:AppBar(
         title:Text("awesome app"),
       ),
-      body:Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Align(
-          alignment: Alignment.bottomLeft,
-          child: Container(
-            color: Colors.cyanAccent,
-            width: 200,
-            height: 400,
-            //width: MediaQuery.of(context).size.width,
-            //height: MediaQuery.of(context).size.height,// height: MediaQuery.of(context).size.height/2,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
+      body:Container(
+      ),drawer: Drawer(
+      width:300,
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children:<Widget> [
+         /* DrawerHeader(
+            child: Text("hi i am drawer",style: TextStyle(color: Colors.white),),
+            decoration: BoxDecoration(color: Colors.purple,),
 
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  // In a column mainaxisalignment vertically
-                  crossAxisAlignment: CrossAxisAlignment.center,// cross Axisalignment horizontally
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        padding: const EdgeInsets.all(12),
-                        width:100,
-                        height: 100,
-                        color: Colors.red,
-                      ),
-                    ), //wrapwith padding  in container
-                    Container(
-                      padding: const EdgeInsets.all(12),
-                      width:100,
-                      height: 100,
-                      color: Colors.green,
-                    ),
-                    Container(
-                      padding: const EdgeInsets.all(12),
-                      width:100,
-                      height: 100,
-                      color: Colors.yellow,
-                    ),
-                  ],
-                ),
-            ),
+          ),*/
+          UserAccountsDrawerHeader(accountName: Text("abinaya"), accountEmail: Text("abinaya@gmail.com"),
+          currentAccountPicture: CircleAvatar(
+            backgroundImage:NetworkImage("https://images.unsplash.com/photo-1664575602554-2087b04935a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8d29tYW58ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"),
+          ),),
+
+          ListTile(
+            leading: Icon(Icons.person),
+            title: Text('Account'),
+            subtitle:Text('personal') ,
+            trailing: Icon(Icons.edit),
           ),
-        ),
+          ListTile(
+            leading: Icon(Icons.email),
+            title: Text('Account'),
+            subtitle:Text('personal') ,
+            trailing: Icon(Icons.send),
+          ),
+        ],
+      ),
+    ),
+      //floatingActionButtonLocation: FloatingActionButtonLocation.startDocked,
+      floatingActionButton: FloatingActionButton(onPressed: (){},
+      child: Icon(Icons.edit),
       ),
 
-      /*Row(
-             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-         // In a row mainaxisalignment horizontal
-        crossAxisAlignment: CrossAxisAlignment.center,// crossaxisalgnment vertically
-             children: <Widget>[
-               Container(
-                 padding: const EdgeInsets.all(12),
-                 width:100,
-                 height: 100,
-                 color: Colors.red,
-               ),
-               Container(
-                 padding: const EdgeInsets.all(12),
-                 width:100,
-                 height: 100,
-                 color: Colors.green,
-               ),
-               Container(
-                 padding: const EdgeInsets.all(12),
-                 width:100,
-                 height: 100,
-                 color: Colors.yellow,
-               ),
-             ],
-           ),*/
     );
   }
 }
-//rows and column
+//Material Drawer |Listview  |CircleAvatar |NetworkImage |Floating Action Button
+ //unspash openimage in newtab copy url
